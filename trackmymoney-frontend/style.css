@@ -1,0 +1,41 @@
+/* basic reset */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #151834;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    height: auto;
+  }
+
+#login-background {
+    position: fixed;
+    height: 250%;
+    width: 250%;
+    margin-left: -100%;
+    margin-top: -120%;
+    z-index: -1;
+}
+
+#login-container {
+    height: 300px;
+    width: 80%;
+    border-radius: 10%;
+    background-color: #2C325C;
+    z-index: 1;
+}
