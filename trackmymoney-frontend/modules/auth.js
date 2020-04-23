@@ -49,7 +49,7 @@ class Auth
             }
         }
         
-        API.postRequest("/users", userInfo)  
+        API.postRequest("/login", userInfo)  
             .then(response => this.setCurrentUser(response))
     };
 

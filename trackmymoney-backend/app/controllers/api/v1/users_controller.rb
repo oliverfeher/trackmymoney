@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
     def create
         user = User.find_by(email: params[:user][:email])
         # binding.pry

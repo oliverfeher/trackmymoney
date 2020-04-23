@@ -13,7 +13,7 @@ class ApiAdapter
     };
 
     // BASE URL
-    static baseURL = "http://localhost:3000";
+    static baseURL = "http://localhost:3000/api/v1";
 
 
     // UNIVERSAL FETCH POST REQUEST
