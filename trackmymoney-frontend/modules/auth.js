@@ -1,8 +1,19 @@
 import API from "/modules/api.js"
+import Dom from "/modules/dom.js";
+
 // RESPONSIBLE FOR USER AUTH/LOGIN INCLUDING FORMS
 
 class Auth 
 {
+    static currentUser = {}
+
+    static setCurrentUser(user) 
+    {
+        this.currentUser = user;
+        console.log("hello " + this.currentUser.first_name);
+        Dom.loadMainPage();
+    }
+
     static logInForm() 
     {
         return `
@@ -26,21 +37,22 @@ class Auth
     };
 
 
-    static logIn(event) 
+    static logIn = (event) => 
     {
         event.preventDefault();
         
+        // GET USER LOGIN INFO FROM FORM INTO AN OBJECT
         const userInfo = {
             user: {
                 email: event.path[2].childNodes[3][0].value,
                 password: event.path[2].childNodes[3][1].value
             }
         }
-        console.log(userInfo);
         
-        API.postRequest("/users", userInfo)
-            .then(data => console.log(data))
+        API.postRequest("/users", userInfo)  
+            .then(response => this.setCurrentUser(response))
     };
+
 
 }
 

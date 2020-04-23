@@ -120,3 +120,10 @@ button {
     font-size: 1.05em;
     font-weight: bold;
 }
+
+#welcome-msg{
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    margin-top: 15%;
+}

@@ -1,3 +1,5 @@
+
+
 // RESPONSIBLE FOR ALL FETCH REQUEST MADE TO THE BACKENDS API
 
 class ApiAdapter
@@ -24,7 +26,6 @@ class ApiAdapter
         })
         .then(response => response.json());
     };
-
 
 }
 
