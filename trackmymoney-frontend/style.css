@@ -45,10 +45,12 @@ html {
 }
 
 #logo {
-    
+    width: 10%;
+    height: 35px;
+    margin-top: -2.5%;
 }
 
-#title-container {
+.title-container {
     margin-top: 20%;
     display: flex;
     flex-direction: row;
@@ -106,7 +108,7 @@ button {
     color: white;
     font-size: 1.05em;
     font-weight: bold;
-
+    
 }
 
 #log-in {
@@ -124,6 +126,21 @@ button {
 
 .inputError {
     border: 2px solid indianred;
+}
+
+#user-container {
+    height: 10em;
+    width: 95%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background-color: #2C325C;
+    align-self: center;
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+}
+#logged-in-title{
+    margin-top: 10%;
 }
 
 @media only screen and (min-width: 500px) {

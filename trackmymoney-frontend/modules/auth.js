@@ -36,7 +36,7 @@ class Auth
     {
         return `
             <div id="login-container">
-            <div id="title-container">
+            <div class="title-container">
                 <img src="./assets/logo.svg" alt="logo"/>
                 <p id="title-text">trackMyMoney</p>
             </div>
@@ -60,7 +60,7 @@ class Auth
     {
         return `
         <div id="login-container">
-            <div id="title-container">
+            <div class="title-container">
                 <img src="./assets/logo.svg" alt="logo"/>
                 <p id="title-text">trackMyMoney</p>
             </div>

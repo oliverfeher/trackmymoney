@@ -33,8 +33,12 @@ class Dom
     static loadMainPage()
     {
         this.container.innerHTML =  `
-        <div id="login-container">
-            <p id="welcome-msg">Hello ${Auth.currentUser.first_name} !</p>
+        <div id="user-container">
+            <div class="title-container" id="logged-in-title">
+                <img src="./assets/logo.svg" alt="logo" id="logo"/>
+                <p id="title-text">trackMyMoney</p>
+            </div>
+            <p id="welcome-msg">Welcom, ${Auth.currentUser.first_name + " " + Auth.currentUser.last_name} !</p>
         </div>`
     }
 }
