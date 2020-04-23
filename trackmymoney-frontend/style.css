@@ -143,6 +143,28 @@ button {
     margin-top: 10%;
 }
 
+#welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#date-now {
+    color: #7682BF;
+}
+
+#income-section {
+    height: 20em;
+    width: 95%;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: #2C325C;
+    align-self: center;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;
