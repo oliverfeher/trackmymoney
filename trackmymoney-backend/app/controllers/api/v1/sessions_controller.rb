@@ -6,9 +6,14 @@ class Api::V1::SessionsController < ApplicationController
         
         # VALIDATION FOR NON EXISTING EMAIL ADDRESS
         if !user.nil?
-            render json: user
+            binding.pry
+            if user.authenticate(params[:user][:password])
+                render json: user
+            else
+                render json: { error: "Invalid password!"}
+            end
         else
-            render json: { error: "This e-mail does not exist!"}
+                render json: { error: "This e-mail does not exist!"}
         end
     end
 
