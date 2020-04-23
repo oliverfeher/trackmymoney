@@ -9,9 +9,17 @@ class Auth
 
     static setCurrentUser(user) 
     {
-        this.currentUser = user;
-        console.log("hello " + this.currentUser.first_name);
-        Dom.loadMainPage();
+        // VALIDATION FOR NON EXISTING E-MAIL ADDRESSES
+        if (user.hasOwnProperty("error"))
+        {
+            Dom.renderLogin();
+        } 
+        else 
+        {
+            this.currentUser = user;
+            console.log("hello " + this.currentUser.first_name);
+            Dom.loadMainPage();
+        }
     }
 
     static logInForm() 

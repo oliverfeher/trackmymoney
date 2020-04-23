@@ -24,7 +24,7 @@ class ApiAdapter
             headers: this.headersConfig,
             body: JSON.stringify(body)
         })
-        .then(response => response.json());
+        .then(response => response.json())
     };
 
 }
