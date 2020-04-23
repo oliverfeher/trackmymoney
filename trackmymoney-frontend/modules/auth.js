@@ -5,8 +5,10 @@ import Dom from "/modules/dom.js";
 
 class Auth 
 {
-    static currentUser = {}
 
+
+    // SETTING CURRENT USER
+    static currentUser = {}
     static setCurrentUser(user) 
     {
         // VALIDATION FOR NON EXISTING E-MAIL ADDRESSES
@@ -22,6 +24,7 @@ class Auth
         }
     }
 
+    // SIGN UP FORM HTML
     static logInForm() 
     {
         return `
@@ -44,6 +47,8 @@ class Auth
         `
     };
 
+
+    // SIGN UP FORM HTML
     static signUpForm()
     {
         return `
