@@ -15,10 +15,16 @@ class Auth
         // VALIDATION FOR NON EXISTING E-MAIL ADDRESSES
         if (user.hasOwnProperty("error"))
         {
+            console.log(user)
             Dom.renderLogin();
-            ErrorHandling.loginErrors();
-        } 
-        else 
+            ErrorHandling.loginErrors(user);
+        }
+        else if (user.hasOwnProperty("loginError"))
+        {
+            Dom.renderSignUp();
+            ErrorHandling.signupErrors(user);
+        }
+        else
         {
             this.currentUser = user;
             console.log(this.currentUser)
@@ -66,7 +72,7 @@ class Auth
                 <input type="password" name="user_password" placeholder="password"/>
                 <label for="">First name:</label>
                 <input type="text" name="user_first_name" placeholder="first name"/>
-                <label for="">Last name::</label>
+                <label for="">Last name:</label>
                 <input type="text" name="user_last_name" placeholder="last name"/>
             </form>
             <div id="button-container">
@@ -76,7 +82,7 @@ class Auth
         `
     }
 
-
+// LOGIN REQUEST
     static logIn = (event) => 
     {
         event.preventDefault();
@@ -92,7 +98,7 @@ class Auth
             .then(response => this.setCurrentUser(response));
     };
 
-
+// SIGNUP REQUEST
     static userSignUp =  (event) =>
     {
         const userInfo = {
@@ -103,7 +109,6 @@ class Auth
                 last_name: event.path[2].childNodes[3][3].value
             }
         };
-
 
         API.postRequest("/users", userInfo)
             .then(response => this.setCurrentUser(response));

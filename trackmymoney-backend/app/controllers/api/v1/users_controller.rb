@@ -1,8 +1,13 @@
 class Api::V1::UsersController < ApplicationController
     def create
-        binding.pry
         user = User.create(user_params)
-        render json: user
+        if user.errors
+            render json: {
+                loginError: user.errors.full_messages
+            }
+        else
+            render json: user
+        end
     end
 
     def show

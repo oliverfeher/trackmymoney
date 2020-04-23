@@ -10,12 +10,12 @@ class Api::V1::SessionsController < ApplicationController
             if user.authenticate(params[:user][:password])
                 render json: user
             else
-                render json: { error: "Invalid password!"}
+                render json: { error: "Invalid creditentials!"}
             end
         else
-            render json: { error: "This e-mail does not exist!"}
+            render json: { error: "Invalid creditentials!"}
         end
-        
+
     end
 
     # POST TO LOGOUT
