@@ -26,7 +26,7 @@ class Dom
         this.container.innerHTML = Auth.signUpForm();
         document.querySelector("#title-container").style.marginTop = "5%";
         const signUpButton = document.querySelector("#sign-up");
-        
+        signUpButton.addEventListener("click", Auth.userSignUp);
     }
 
     // RERENDER AFTER SUCCESFUL LOGIN

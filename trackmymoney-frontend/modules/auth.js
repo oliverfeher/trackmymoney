@@ -92,6 +92,19 @@ class Auth
     };
 
 
+    static userSignUp()
+    {
+        const userInfo = {
+            user : {
+                email: event.path[2].childNodes[3][0].value,
+                password: event.path[2].childNodes[3][1].value,
+                first_name: event.path[2].childNodes[3][2].value,
+                last_name: event.path[2].childNodes[3][3].value
+            }
+        };
+        console.log(userInfo);
+    }
+
 }
 
 export default Auth;
