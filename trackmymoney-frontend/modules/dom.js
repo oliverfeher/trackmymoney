@@ -22,7 +22,6 @@ class Dom
         <div id="login-container">
             <p id="welcome-msg">Hello ${Auth.currentUser.first_name} !</p>
         </div>`
-        console.log(Auth.currentUser.first_name)
     }
 }
 
