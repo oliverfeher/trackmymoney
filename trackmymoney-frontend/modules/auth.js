@@ -15,7 +15,6 @@ class Auth
         // VALIDATION FOR NON EXISTING E-MAIL ADDRESSES
         if (user.hasOwnProperty("error"))
         {
-            console.log(user)
             Dom.renderLogin();
             ErrorHandling.loginErrors(user);
         }
@@ -26,8 +25,8 @@ class Auth
         }
         else
         {
+            console.log(user);
             this.currentUser = user;
-            console.log(this.currentUser)
             Dom.loadMainPage();
         }
     }

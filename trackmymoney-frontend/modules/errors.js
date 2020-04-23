@@ -26,7 +26,6 @@ class Errors {
     static signupErrors(user) {
         document.querySelectorAll("input").forEach(e=> e.classList.add("inputError"));
             
-            console.log(user)
             const inputs = document.querySelectorAll("input")
             
                 user.loginError.forEach(e=>{
