@@ -1,3 +1,5 @@
+// RESPONSIBLE FOR ALL FETCH REQUEST MADE TO THE BACKENDS API
+
 class ApiAdapter
 {
 
@@ -9,7 +11,7 @@ class ApiAdapter
     };
 
     // BASE URL
-    static baseURL = "https://localhost:3000";
+    static baseURL = "http://localhost:3000";
 
 
     // UNIVERSAL FETCH POST REQUEST
@@ -25,3 +27,5 @@ class ApiAdapter
 
 
 }
+
+export default ApiAdapter;

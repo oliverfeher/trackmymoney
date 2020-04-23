@@ -1,3 +1,4 @@
+import API from "/modules/api.js"
 // RESPONSIBLE FOR USER AUTH/LOGIN INCLUDING FORMS
 
 class Auth 
@@ -22,27 +23,25 @@ class Auth
             </div>
         </div>
         `
-    }
+    };
 
 
     static logIn(event) 
     {
         event.preventDefault();
-        // console.log(event);
-        // console.log(event.target.form[0].value);
-        // console.log(event.target.form[1].value);
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                user_email: event.target.form[0].value
-            })
-        }).then(response=> response.json())
-        .then(data=>console.log(data))
-    }
+        
+        const userInfo = {
+            user: {
+                email: event.path[2].childNodes[3][0].value,
+                password: event.path[2].childNodes[3][1].value
+            }
+        }
+        console.log(userInfo);
+        
+        API.postRequest("/users", userInfo)
+            .then(data => console.log(data))
+    };
+
 }
 
 export default Auth;
