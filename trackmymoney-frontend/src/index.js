@@ -1,5 +1,4 @@
-import Auth from "/modules/login.js";
+import Dom from "/modules/dom.js";
 
-
-Auth.logInForm();
-
+// RENDER LOGIN FORM IF THERE IS NO USER
+Dom.renderLogin();

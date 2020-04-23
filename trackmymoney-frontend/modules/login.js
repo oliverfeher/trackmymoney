@@ -1,10 +1,10 @@
-class Auth {
+// RESPONSIBLE FOR USER AUTH/LOGIN INCLUDING FORMS
 
-
+class Auth 
+{
     static logInForm() 
     {
-        const container = document.querySelector("#main-container")
-        container.innerHTML = `
+        return `
             <div id="login-container">
             <div id="title-container">
                 <img src="./assets/logo.svg" alt="logo"/>
@@ -25,7 +25,8 @@ class Auth {
     }
 
 
-    static logIn(event) {
+    static logIn(event) 
+    {
         event.preventDefault();
         // console.log(event);
         // console.log(event.target.form[0].value);
