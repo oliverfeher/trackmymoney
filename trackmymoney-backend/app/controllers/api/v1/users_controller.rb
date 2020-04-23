@@ -2,7 +2,6 @@ class Api::V1::UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.errors.full_messages.blank?
-            binding.pry
             render json: user
         else
             render json: {

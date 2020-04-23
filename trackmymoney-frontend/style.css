@@ -12,10 +12,12 @@ html {
     box-sizing: inherit;
   }
   
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  body, h1, h2, h3, h4, h5, h6, ol, p, ul {
     margin: 0;
     padding: 0;
     font-weight: normal;
+    text-align: center;
+    
   }
   
   ol, ul {
@@ -30,17 +32,9 @@ html {
     display: flex;
     flex-direction: column;
 }
-#login-background {
-    position: fixed;
-    height: 250%;
-    width: 250%;
-    margin-left: -100%;
-    margin-top: -120%;
-    z-index: -1;
-}
 
 #login-container {
-    height: 580px;
+    height: 40em;
     width: 95%;
     border-radius: 40px;
     background-color: #2C325C;
@@ -130,4 +124,12 @@ button {
 
 .inputError {
     border: 2px solid indianred;
+}
+
+@media only screen and (min-width: 500px) {
+    body {
+        width: 375px;
+        height: 812px;
+        margin: auto;
+    }
 }
