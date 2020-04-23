@@ -1,5 +1,6 @@
 import API from "/modules/api.js"
 import Dom from "/modules/dom.js";
+import ErrorHandling from "/modules/errors.js"
 
 // RESPONSIBLE FOR USER AUTH/LOGIN INCLUDING FORMS
 
@@ -15,6 +16,7 @@ class Auth
         if (user.hasOwnProperty("error"))
         {
             Dom.renderLogin();
+            ErrorHandling.loginErrors();
         } 
         else 
         {
@@ -86,13 +88,12 @@ class Auth
                 password: event.path[2].childNodes[3][1].value
             }
         }
-        
         API.postRequest("/login", userInfo)  
             .then(response => this.setCurrentUser(response));
     };
 
 
-    static userSignUp()
+    static userSignUp =  (event) =>
     {
         const userInfo = {
             user : {
@@ -102,6 +103,7 @@ class Auth
                 last_name: event.path[2].childNodes[3][3].value
             }
         };
+
 
         API.postRequest("/users", userInfo)
             .then(response => this.setCurrentUser(response));

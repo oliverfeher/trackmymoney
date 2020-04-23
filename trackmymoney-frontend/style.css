@@ -127,3 +127,7 @@ button {
     font-size: 1.5em;
     margin-top: 15%;
 }
+
+.inputError {
+    border: 2px solid indianred;
+}
