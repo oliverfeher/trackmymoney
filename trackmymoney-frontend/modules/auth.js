@@ -88,7 +88,7 @@ class Auth
         }
         
         API.postRequest("/login", userInfo)  
-            .then(response => this.setCurrentUser(response))
+            .then(response => this.setCurrentUser(response));
     };
 
 
@@ -102,8 +102,10 @@ class Auth
                 last_name: event.path[2].childNodes[3][3].value
             }
         };
-        console.log(userInfo);
-    }
+
+        API.postRequest("/users", userInfo)
+            .then(response => this.setCurrentUser(response));
+    };
 
 }
 
