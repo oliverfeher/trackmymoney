@@ -1,5 +1,8 @@
 /* basic reset */
 html {
+    background-image: url(./assets/login-background.svg);
+    background-position: center;
+    background-size: 40em;
     box-sizing: border-box;
     font-size: 16px;
     background-color: #151834;
