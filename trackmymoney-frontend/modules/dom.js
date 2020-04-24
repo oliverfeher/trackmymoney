@@ -34,7 +34,9 @@ class Dom
     static loadMainPage()
     {
         this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderBillsSection()}`;
+        this.getUsersBills();
         this.flipping();
+        
 
     };
 
@@ -96,7 +98,10 @@ class Dom
             <div id="income-section" class="flip-box">
                 <div class="flip-box-inner">
                     <div class="flip-box-front">
-                        <p>${Auth.currentUser.bills[0].name} - ${Auth.currentUser.bills[0].cost}</p>
+                    <p id="bills-title">Your bills:</p>
+                        <div id="bills">
+                        </div>
+
                     </div>
 
                     <div class="flip-box-back">
@@ -109,6 +114,17 @@ class Dom
                     </div>
                 </div>
             </div>`
+    }
+
+    // RENDER CURRENTUSERS BILLS
+    static getUsersBills()
+    {
+        Auth.currentUser.bills.forEach(bill=> {
+            let ubill = document.createElement("p")
+            ubill.innerText = `${bill.name} - ${bill.cost}`
+            ubill.setAttribute("class", "bill-text")
+            document.querySelector("#bills").appendChild(ubill);
+        });
     }
 
     // RENDER CURRENT DATE

@@ -300,6 +300,19 @@ li {
     width: 30%;
     cursor: pointer;
 }
+
+.bill-text {
+    margin-top: 2%;
+    color: white;
+    font-size: 1.2em;
+}
+
+#bills-title {
+    margin-top: 25px;
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+}
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;
