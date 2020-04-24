@@ -190,7 +190,7 @@ li {
 #bar-remaining {
     position: absulte;
     left: 0;
-    width: 30%;
+    width: 0%;
     height: 25px;
     background-color: #3EF3D3;
     border-radius: 1000px;
@@ -210,7 +210,7 @@ li {
     content: " ";
     position: absulte;
     left: 0;
-    width: 70%;
+    width: 0%;
     height: 25px;
     background-color: #3B70EB;
     border-radius: 1000px;

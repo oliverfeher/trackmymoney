@@ -58,6 +58,7 @@ class Dom
     // RENDER INCOME SECTION\
     static renderIncomeSection() 
     {
+        
         return `
             <div id="income-section" class="flip-box">
                 <div class="flip-box-inner">
@@ -67,11 +68,11 @@ class Dom
                             <ul>
                                 <p id="bar-remaining-text">remaining $${Auth.currentUser.income - Money.getBillsValue(Auth.currentUser)}</p>
                                 <li></li>
-                                <li id="bar-remaining"></li>
+                                <li id="bar-remaining" style="width:${this.calculateRemainingWidth(Auth.currentUser)}%;"></li>
 
-                                    <p id="bar-spent-text">spent $4,000</p>
+                                    <p id="bar-spent-text">spent $${Money.getBillsValue(Auth.currentUser)}</p>
                                 <li></li>
-                                <li id="bar-spent"></li>
+                                <li id="bar-spent" style="width:${this.calculateSpentWidth(Auth.currentUser)}%;"></li>
                             </ul>
                             <p id="edit-income-section" >edit</p>
                         </div>
@@ -127,7 +128,12 @@ class Dom
         const remainingBar = document.querySelector("#bar-remaining");
         const spentBar = document.querySelector("#bar-spent");
         const spentText = document.querySelector("#bar-spent");
-        remainingText.innerHTML = `remaining $${user.income - Money.getBillsValue(user)}`
+
+        
+        remainingText.innerText = `remaining $${user.income - Money.getBillsValue(user)}`
+        remainingBar.style.width =`${this.calculateRemainingWidth(user)}%`
+
+        spentText.inerText = `spent $${Money.getBillsValue(user)}`
         spentBar.style.width = `${this.calculateSpentWidth(user)}%`;
     }
 
@@ -135,6 +141,12 @@ class Dom
     {
         let spent = (Money.getBillsValue(user) / user.income) * 100;
         return spent;  
+    }
+
+    static calculateRemainingWidth(user)
+    {
+        let remaining = 100 - this.calculateSpentWidth(user);
+        return remaining;
     }
 }
 
