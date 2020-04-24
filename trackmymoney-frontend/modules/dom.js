@@ -77,6 +77,10 @@ class Dom
                     </div>
 
                     <div class="flip-box-back">
+                        <form id="income-form">
+                            <label>Add/Edit Income:</label>
+                            <input type="number">
+                        </form>
                         <h2>hello</h2>
                     </div>
                 </div>

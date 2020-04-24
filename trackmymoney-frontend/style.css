@@ -156,8 +156,6 @@ button {
 #income-section {
     height: 15em;
     width: 95%;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
     background-color: #2C325C;
     align-self: center;
     margin-top: 5%;
@@ -278,6 +276,9 @@ li {
     transform: rotateY(180deg);
   }
 
+  #income-form {
+      margin: 30px auto;
+  }
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;
