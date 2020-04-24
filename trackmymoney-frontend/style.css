@@ -169,9 +169,6 @@ button {
     padding: 20px;
 }
 
-ul {
-    
-}
 li {
     position: relative;
     list-style: none;
@@ -197,8 +194,8 @@ li {
     height: 25px;
     background-color: #3EF3D3;
     border-radius: 1000px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     color: #464C7A;
     font-size: 0.9em;
     margin-top: -45px;
@@ -217,8 +214,8 @@ li {
     height: 25px;
     background-color: #3B70EB;
     border-radius: 1000px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     color: #464C7A;
     font-size: 0.9em;
     margin-top: -45px;
@@ -240,6 +237,7 @@ li {
 #edit-income-section {
     font-size: 1.2em;
     color: #7682BF;
+    cursor: pointer;
 }
 
 
@@ -271,13 +269,23 @@ li {
   }
 
   .flip-box-back {
-    background-color: #3EF3D3;
+    background-color: #2C325C;
+    border: 3px #3EF3D3 solid;
     color: black;
     transform: rotateY(180deg);
   }
 
   #income-form {
       margin: 30px auto;
+  }
+
+  h2 {
+      padding: 5px;
+      border-radius: 25px;
+      background-color: #3EF3D3;
+      width: 30%;
+      margin: auto;
+      cursor: pointer;
   }
 @media only screen and (min-width: 500px) {
     body {
