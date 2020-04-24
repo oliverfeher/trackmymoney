@@ -82,7 +82,8 @@ class Dom
                             <label>Add/Edit Income:</label>
                             <input type="number">
                         </form>
-                        <h2>Submit</h2>
+                        <p id="income-submit">Submit</p>
+                        <p id="income-back">Back</p>
                     </div>
                 </div>
             </div>
@@ -104,9 +105,12 @@ class Dom
         const progressSection = document.querySelector("#edit-income-section");
         progressSection.addEventListener("click", flipFlop);
 
-        const progressSectionBack = document.querySelector("h2");
+        const progressSectionBack = document.querySelector("#income-submit");
         progressSectionBack.addEventListener("click", flipFlopBack);
         progressSectionBack.addEventListener("click", Money.getIncome);
+
+        const backButton = document.querySelector("#income-back");
+        backButton.addEventListener("click", flipFlopBack);
 
         // RENDER INCOME EDIT FORM
         function flipFlop() 

@@ -279,7 +279,7 @@ li {
       margin: 30px auto;
   }
 
-  h2 {
+  #income-submit {
       padding: 5px;
       border-radius: 25px;
       background-color: #3EF3D3;
@@ -287,6 +287,18 @@ li {
       margin: auto;
       cursor: pointer;
   }
+
+  #income-back {
+    margin: 5% auto;
+    background-color: #21264B;
+    color: white;
+    font-size: 1.05em;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 25px;
+    width: 30%;
+    cursor: pointer;
+}
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;
