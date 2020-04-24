@@ -2,8 +2,11 @@ import ApiAdapter from "/modules/api.js";
 import Auth from "/modules/auth.js";
 import Dom from "/modules/dom.js";
 
+// RESPONSIBLE FOR CALCULATIONS AND DATA PULLS
 class Money
 {
+
+    // ADD/EDIT USERS INCOME
     static getIncome = (event) =>
     {
         event.preventDefault();
@@ -16,18 +19,18 @@ class Money
             .then(response => this.updateUserIncome(response))
     }
 
+    // UPDATE DOM WITH getIncome() RESULTS
     static updateUserIncome(user)
     {
-        console.log(user);
         Dom.updateBars(user);
         const incomeText = document.querySelector("#total-income");
         incomeText.innerText = `Total income: $${user.income}`
     }
 
+    // GET USERS BILLS TOTAL VALUE/COST
     static getBillsValue(user)
     {
         let costArray = [];
-        console.log(user)
         for(let i = 0; i < user.bills.length; i++)
         {
             costArray.push(user.bills[i].cost);

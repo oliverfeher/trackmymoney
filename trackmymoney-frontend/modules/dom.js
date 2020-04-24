@@ -39,7 +39,6 @@ class Dom
     };
 
     // RENDER LOGGED IN HEADER
-
     static renderLoggedInHeader()
     {
         return `
@@ -109,11 +108,13 @@ class Dom
         progressSectionBack.addEventListener("click", flipFlopBack);
         progressSectionBack.addEventListener("click", Money.getIncome);
 
+        // RENDER INCOME EDIT FORM
         function flipFlop() 
         {
             document.querySelector(".flip-box").classList.add("flip-section");
         }
 
+        // RENDER INCOME DISPLAY FORM
         function flipFlopBack() 
         {
             document.querySelector(".flip-box").classList.remove("flip-section");
@@ -121,15 +122,15 @@ class Dom
     }
 
     // UPDATE MONEY BARS
-
     static updateBars(user)
     {
+        // BAR VARIABLES
         const remainingText = document.querySelector("#bar-remaining-text");
         const remainingBar = document.querySelector("#bar-remaining");
         const spentBar = document.querySelector("#bar-spent");
         const spentText = document.querySelector("#bar-spent");
 
-        
+        // UPDATE BAR WIDTHS AND REMAINING/SPENT VALUES
         remainingText.innerText = `remaining $${user.income - Money.getBillsValue(user)}`
         remainingBar.style.width =`${this.calculateRemainingWidth(user)}%`
 
@@ -137,12 +138,14 @@ class Dom
         spentBar.style.width = `${this.calculateSpentWidth(user)}%`;
     }
 
+    // CALCULATE SPENT PERCENTAGE OF USER INCOME
     static calculateSpentWidth(user)
     {
         let spent = (Money.getBillsValue(user) / user.income) * 100;
         return spent;  
     }
 
+    // CALCULATE REMAINING PERCENTAGE OF USER INCOME
     static calculateRemainingWidth(user)
     {
         let remaining = 100 - this.calculateSpentWidth(user);

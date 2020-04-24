@@ -26,6 +26,7 @@ class ApiAdapter
         .then(response => response.json())
     };
 
+    // UNIVERSAL FETCH PATCH REQUEST
     static patchRequest(url, body)
     {
         return fetch(this.baseURL + url, {
