@@ -2,7 +2,10 @@ class Api::V1::UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.errors.full_messages.blank?
-            render json: user
+            render json: {
+                user: user,
+                bills: user.bills
+            }
         else
             render json: {
                 loginError: user.errors.full_messages
@@ -18,7 +21,10 @@ class Api::V1::UsersController < ApplicationController
     def update
         user = User.find_by(id: params[:user][:id])
         user.update(income: params[:income])
-        render json: user
+        render json: {
+            user: user,
+            bills: user.bills
+        }
     end
 
     private

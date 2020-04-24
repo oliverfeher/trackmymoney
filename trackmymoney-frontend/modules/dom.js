@@ -121,8 +121,9 @@ class Dom
 
     // UPDATE MONEY BARS
 
-    static updateBars()
+    static updateBars(data)
     {
+        Money.getBillsValue(data);
         const remainingBar = document.querySelector("#bar-remaining");
         remainingBar.style.width = "";
     }
