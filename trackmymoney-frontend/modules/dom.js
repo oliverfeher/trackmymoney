@@ -118,6 +118,14 @@ class Dom
             document.querySelector(".flip-box").classList.remove("flip-section");
         }
     }
+
+    // UPDATE MONEY BARS
+
+    static updateBars()
+    {
+        const remainingBar = document.querySelector("#bar-remaining");
+        remainingBar.style.width = "";
+    }
 }
 
 export default Dom;
