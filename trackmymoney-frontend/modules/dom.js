@@ -62,10 +62,10 @@ class Dom
             <div id="income-section" class="flip-box">
                 <div class="flip-box-inner">
                     <div class="flip-box-front">
-                        <p id="total-income">Total income: $6,000</p>
+                        <p id="total-income">Total income: $${Auth.currentUser.income}</p>
                         <div id="progress-container">
                             <ul>
-                                <p id="bar-remaining-text">remaining $2,000</p>
+                                <p id="bar-remaining-text">remaining $${Auth.currentUser.income}</p>
                                 <li></li>
                                 <li id="bar-remaining"></li>
 

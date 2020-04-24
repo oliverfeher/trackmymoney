@@ -12,7 +12,13 @@ class Money
             income: parseInt(event.target.parentNode.children[0].children[1].value)
         }
         ApiAdapter.patchRequest("/users", userInfo)
-            .then(response => console.log(response));
+            .then(response => this.updateUserIncome(response));
+    }
+
+    static updateUserIncome(user)
+    {
+        const incomeText = document.querySelector("#total-income");
+        incomeText.innerText = `Total income: $${user.income}`
     }
 
 }
