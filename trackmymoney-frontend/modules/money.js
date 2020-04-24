@@ -33,7 +33,7 @@ class Money
             costArray.push(data.bills[i].cost);
         }
         let totalCost = costArray.reduce((total, num) => {return total + num}, 0)
-        console.log(totalCost);
+        return totalCost;
     }
 
 }

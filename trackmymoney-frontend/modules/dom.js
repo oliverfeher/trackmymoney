@@ -123,8 +123,9 @@ class Dom
 
     static updateBars(data)
     {
-        Money.getBillsValue(data);
+        const remainingText = document.querySelector("#bar-remaining-text");
         const remainingBar = document.querySelector("#bar-remaining");
+        remainingText.innerHTML = `remaining $${data.user.income - Money.getBillsValue(data)}`
         remainingBar.style.width = "";
     }
 }
