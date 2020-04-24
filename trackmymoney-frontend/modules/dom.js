@@ -1,4 +1,5 @@
 import Auth from "/modules/auth.js";
+import Money from "/modules/money.js"
 
 // RESPONSIBLE FOR MANIPULATING THE DOM
 class Dom
@@ -105,6 +106,7 @@ class Dom
 
         const progressSectionBack = document.querySelector("h2");
         progressSectionBack.addEventListener("click", flipFlopBack);
+        progressSectionBack.addEventListener("click", Money.getIncome);
 
         function flipFlop() 
         {
