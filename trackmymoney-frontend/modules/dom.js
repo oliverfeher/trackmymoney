@@ -33,7 +33,7 @@ class Dom
     // RERENDER AFTER SUCCESFUL LOGIN
     static loadMainPage()
     {
-        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()}`;
+        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderBillsSection()}`;
         this.flipping();
 
     };
@@ -88,6 +88,27 @@ class Dom
                 </div>
             </div>
         `
+    }
+    // RENDER BILLS SECTION
+    static renderBillsSection()
+    {
+        return `
+            <div id="income-section" class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <p>${Auth.currentUser.bills[0].name} - ${Auth.currentUser.bills[0].cost}</p>
+                    </div>
+
+                    <div class="flip-box-back">
+                        <form id="income-form">
+                            <label>Add/Edit Bill:</label>
+                            <input type="number">
+                        </form>
+                        <p id="income-submit">Submit</p>
+                        <p id="income-back">Back</p>
+                    </div>
+                </div>
+            </div>`
     }
 
     // RENDER CURRENT DATE
