@@ -121,7 +121,7 @@ button {
     text-align: center;
     color: white;
     font-size: 1.5em;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .inputError {
@@ -150,6 +150,7 @@ button {
 }
 
 #date-now {
+    margin-top: 3%;
     color: #7682BF;
 }
 
