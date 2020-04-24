@@ -32,8 +32,9 @@ class Dom
     // RERENDER AFTER SUCCESFUL LOGIN
     static loadMainPage()
     {
-        
         this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()}`;
+        this.flipping();
+
     };
 
     // RENDER LOGGED IN HEADER
@@ -90,6 +91,26 @@ class Dom
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let currentDate = ` ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
         return currentDate;
+    }
+
+    // FLIP FLOP SECTION FLIPPING
+    static flipping()
+    {
+        const progressSection = document.querySelector("#edit-income-section");
+        progressSection.addEventListener("click", flipFlop);
+
+        const progressSectionBack = document.querySelector("h2");
+        progressSectionBack.addEventListener("click", flipFlopBack);
+
+        function flipFlop() 
+        {
+            document.querySelector(".flip-box").classList.add("flip-section");
+        }
+
+        function flipFlopBack() 
+        {
+            document.querySelector(".flip-box").classList.remove("flip-section");
+        }
     }
 }
 
