@@ -57,19 +57,27 @@ class Dom
     static renderIncomeSection() 
     {
         return `
-            <div id="income-section">
-                <p id="total-income">Total income: $6,000</p>
-                <div id="progress-container">
-                    <ul>
-                        <p id="bar-remaining-text">remaining $2,000</p>
-                        <li></li>
-                        <li id="bar-remaining"></li>
+            <div id="income-section" class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <p id="total-income">Total income: $6,000</p>
+                        <div id="progress-container">
+                            <ul>
+                                <p id="bar-remaining-text">remaining $2,000</p>
+                                <li></li>
+                                <li id="bar-remaining"></li>
 
-                        <p id="bar-spent-text">spent $4,000</p>
-                        <li></li>
-                        <li id="bar-spent"></li>
-                    </ul>
-                <p id="edit-income-section" >edit</p>
+                                    <p id="bar-spent-text">spent $4,000</p>
+                                <li></li>
+                                <li id="bar-spent"></li>
+                            </ul>
+                            <p id="edit-income-section" >edit</p>
+                        </div>
+                    </div>
+
+                    <div class="flip-box-back">
+                        <h2>hello</h2>
+                    </div>
                 </div>
             </div>
         `
