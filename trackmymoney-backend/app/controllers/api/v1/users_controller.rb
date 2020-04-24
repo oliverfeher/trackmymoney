@@ -16,7 +16,9 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        binding.pry
+        user = User.find_by(id: params[:user][:id])
+        user.update(income: params[:income])
+        render json: user
     end
 
     private

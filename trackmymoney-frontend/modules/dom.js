@@ -82,7 +82,7 @@ class Dom
                             <label>Add/Edit Income:</label>
                             <input type="number">
                         </form>
-                        <h2>hello</h2>
+                        <h2>Submit</h2>
                     </div>
                 </div>
             </div>
