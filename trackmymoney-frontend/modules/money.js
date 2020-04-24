@@ -16,21 +16,21 @@ class Money
             .then(response => this.updateUserIncome(response))
     }
 
-    static updateUserIncome(data)
+    static updateUserIncome(user)
     {
-        console.log(data);
-        Dom.updateBars(data);
+        console.log(user);
+        Dom.updateBars(user);
         const incomeText = document.querySelector("#total-income");
-        incomeText.innerText = `Total income: $${data.user.income}`
+        incomeText.innerText = `Total income: $${user.income}`
     }
 
-    static getBillsValue(data)
+    static getBillsValue(user)
     {
         let costArray = [];
-
-        for(let i = 0; i < data.bills.length; i++)
+        console.log(user)
+        for(let i = 0; i < user.bills.length; i++)
         {
-            costArray.push(data.bills[i].cost);
+            costArray.push(user.bills[i].cost);
         }
         let totalCost = costArray.reduce((total, num) => {return total + num}, 0)
         return totalCost;

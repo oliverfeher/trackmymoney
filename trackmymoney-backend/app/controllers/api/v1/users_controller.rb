@@ -2,10 +2,7 @@ class Api::V1::UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.errors.full_messages.blank?
-            render json: {
-                user: user,
-                bills: user.bills
-            }
+            render json: user, include: ["bills"]
         else
             render json: {
                 loginError: user.errors.full_messages

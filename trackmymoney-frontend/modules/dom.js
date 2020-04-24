@@ -65,7 +65,7 @@ class Dom
                         <p id="total-income">Total income: $${Auth.currentUser.income}</p>
                         <div id="progress-container">
                             <ul>
-                                <p id="bar-remaining-text">remaining $${Auth.currentUser.income}</p>
+                                <p id="bar-remaining-text">remaining $${Auth.currentUser.income - Money.getBillsValue(Auth.currentUser)}</p>
                                 <li></li>
                                 <li id="bar-remaining"></li>
 
@@ -121,12 +121,20 @@ class Dom
 
     // UPDATE MONEY BARS
 
-    static updateBars(data)
+    static updateBars(user)
     {
         const remainingText = document.querySelector("#bar-remaining-text");
         const remainingBar = document.querySelector("#bar-remaining");
-        remainingText.innerHTML = `remaining $${data.user.income - Money.getBillsValue(data)}`
-        remainingBar.style.width = "";
+        const spentBar = document.querySelector("#bar-spent");
+        const spentText = document.querySelector("#bar-spent");
+        remainingText.innerHTML = `remaining $${user.income - Money.getBillsValue(user)}`
+        spentBar.style.width = `${this.calculateSpentWidth(user)}%`;
+    }
+
+    static calculateSpentWidth(user)
+    {
+        let spent = (Money.getBillsValue(user) / user.income) * 100;
+        return spent;  
     }
 }
 

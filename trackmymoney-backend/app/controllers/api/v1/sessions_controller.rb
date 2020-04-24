@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
         if !user.nil?
             # binding.pry
             if user.authenticate(params[:user][:password])
-                render json: user
+                render json: user, include: ["bills"]
             else
                 render json: { error: "Invalid creditentials!"}
             end
