@@ -26,6 +26,15 @@ class ApiAdapter
         .then(response => response.json())
     };
 
+    static patchRequest(url, body)
+    {
+        return fetch(this.baseURL + url, {
+            method: "PATCH",
+            headers: this.headersConfig,
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+    };
 }
 
 export default ApiAdapter;
