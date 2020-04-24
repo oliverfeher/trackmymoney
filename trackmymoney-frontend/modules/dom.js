@@ -24,7 +24,7 @@ class Dom
     static renderSignUp = () =>
     {
         this.container.innerHTML = Auth.signUpForm();
-        document.querySelector("#title-container").style.marginTop = "5%";
+        document.querySelector(".title-container").style.marginTop = "5%";
         const signUpButton = document.querySelector("#sign-up");
         signUpButton.addEventListener("click", Auth.userSignUp);
     }
@@ -33,7 +33,7 @@ class Dom
     static loadMainPage()
     {
         
-        this.container.innerHTML = `${this.renderLoggedInHeader()} + ${this.renderIncomeSection()}`L;
+        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()}`;
     };
 
     // RENDER LOGGED IN HEADER
@@ -58,7 +58,19 @@ class Dom
     {
         return `
             <div id="income-section">
-                
+                <p id="total-income">Total income: $6,000</p>
+                <div id="progress-container">
+                    <ul>
+                        <p id="bar-remaining-text">remaining $2,000</p>
+                        <li></li>
+                        <li id="bar-remaining"></li>
+
+                        <p id="bar-spent-text">spent $4,000</p>
+                        <li></li>
+                        <li id="bar-spent"></li>
+                    </ul>
+                <p id="edit-income-section" >edit</p>
+                </div>
             </div>
         `
     }
