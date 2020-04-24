@@ -33,7 +33,7 @@ class Dom
     static loadMainPage()
     {
         
-        this.container.innerHTML = `${this.renderLoggedInHeader()} + ${this.renderIncomeSection()}`;
+        this.container.innerHTML = `${this.renderLoggedInHeader()} + ${this.renderIncomeSection()}`L;
     };
 
     // RENDER LOGGED IN HEADER
