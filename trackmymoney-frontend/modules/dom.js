@@ -101,16 +101,16 @@ class Dom
                     <p id="bills-title">Your bills:</p>
                         <div id="bills">
                         </div>
-
+                    <p id="edit-bills-section" >edit</p>
                     </div>
 
                     <div class="flip-box-back">
                         <form id="income-form">
-                            <label>Add/Edit Bill:</label>
+                            <label>Add Bill:</label>
                             <input type="number">
                         </form>
-                        <p id="income-submit">Submit</p>
-                        <p id="income-back">Back</p>
+                        <p id="bills-submit">Add</p>
+                        <p id="bills-back">Back</p>
                     </div>
                 </div>
             </div>`
@@ -194,6 +194,14 @@ class Dom
         const backButton = document.querySelector("#income-back");
         backButton.addEventListener("click", flipFlopBack);
 
+        const billsSection = document.querySelector("#edit-bills-section");
+        billsSection.addEventListener("click", flipFlopBills);
+
+        const billsBackButton = document.querySelector("#bills-back");
+        billsBackButton.addEventListener("click", flipFlopBillsBack);
+
+
+
         // RENDER INCOME EDIT FORM
         function flipFlop() 
         {
@@ -204,6 +212,19 @@ class Dom
         function flipFlopBack() 
         {
             document.querySelector(".flip-box").classList.remove("flip-section");
+        }
+
+        // RENDER BILLS EDIT FORM
+
+        function flipFlopBills() 
+        {
+            document.querySelector("#bills-section").classList.add("flip-section");
+        }
+
+        // RENDER BILLS DISPLAY FORM
+        function flipFlopBillsBack() 
+        {
+            document.querySelector("#bills-section").classList.remove("flip-section");
         }
     }
 
