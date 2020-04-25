@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/users/:id', to: 'users#show'
       get '/users', to: 'users#index'
+      get "/users/:id/bills", to: "bills#show"
+      post "/users/:id/bills", to: "bills#create"
+      patch "/users/:id/bills", to: "bills#update"
       resource :users, only: [:update, :create]
       post "/login", to: "sessions#new"
       post "/logout", to: "sessions#destroy"
