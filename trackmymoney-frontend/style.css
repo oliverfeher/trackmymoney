@@ -313,6 +313,35 @@ li {
     font-size: 1.4em;
     font-weight: bold;
 }
+
+.bill-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 3%;
+}
+
+.bill-date-button {
+    margin-left: 5%;
+    margin-right: 10%;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    background-color: #21264B;
+    border-radius: 25px;
+}
+
+.bill-status-button {
+    margin-left: auto;
+    margin-right: 5%;
+    padding: 10px 20px;
+    background-color: #21264B;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 25px;
+}
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;

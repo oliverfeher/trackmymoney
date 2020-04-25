@@ -122,8 +122,8 @@ class Dom
         Auth.currentUser.bills.forEach(bill=> 
         {
 
-            let billContinaer = document.createElement("div");
-            billContinaer.setAttribute("class", "bill-container");
+            let billContainer = document.createElement("div");
+            billContainer.setAttribute("class", "bill-container");
 
             let ubill = document.createElement("p")
             ubill.innerText = `${bill.name} - ${bill.cost}`
@@ -135,11 +135,11 @@ class Dom
 
             let statusButton = document.createElement("p");
             statusButton.setAttribute("class", "bill-status-button");
-            statusButton.innerText("Mark Paid");
+            statusButton.innerText = "Mark Paid";
 
             // APPENDING CREATED ELEMENTS
-            billContinaer.append(datebutton, ubill);
-            document.querySelector("#bills").appendChild(billContinaer);
+            billContainer.append(dateButton, ubill, statusButton);
+            document.querySelector("#bills").appendChild(billContainer);
         });
     }
 
