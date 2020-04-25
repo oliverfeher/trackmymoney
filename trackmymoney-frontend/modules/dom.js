@@ -68,11 +68,11 @@ class Dom
                         <div id="progress-container">
                             <ul>
                                 <p id="bar-remaining-text">remaining $${Auth.currentUser.income - Money.getBillsValue(Auth.currentUser)}</p>
-                                <li></li>
+                                <li class="base-bar"></li>
                                 <li id="bar-remaining" style="width:${this.calculateRemainingWidth(Auth.currentUser)}%;"></li>
 
                                     <p id="bar-spent-text">spent $${Money.getBillsValue(Auth.currentUser)}</p>
-                                <li></li>
+                                    <li class="base-bar"></li>
                                 <li id="bar-spent" style="width:${this.calculateSpentWidth(Auth.currentUser)}%;"></li>
                             </ul>
                             <p id="edit-income-section" >edit</p>
@@ -219,6 +219,15 @@ class Dom
         // UPDATE BAR WIDTHS AND REMAINING/SPENT VALUES
         remainingText.innerText = `remaining $${user.income - Money.getBillsValue(user)}`
         remainingBar.style.width =`${this.calculateRemainingWidth(user)}%`
+        if (remainingBar.style.width !== "100%") {
+            remainingBar.style.borderTopRightRadius = "0px";
+            remainingBar.style.borderBottomRightRadius = "0px";
+        }
+        else 
+        {
+            remainingBar.style.borderTopRightRadius = "1000px";
+            remainingBar.style.borderBottomRightRadius = "1000px";
+        }
 
         spentText.innerText = `spent $${Money.getBillsValue(user)}`
         spentBar.style.width = `${this.calculateSpentWidth(user)}%`;

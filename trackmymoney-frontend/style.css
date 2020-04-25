@@ -195,12 +195,14 @@ li {
 
 li {
     content: " ";
-    position: absulte;
     top: calc(100% + 10px);
     left: 0;
     width: 100%;
     height: 25px;
     background-color: #464C7A;
+}
+
+.base-bar {
     border-radius: 1000px;
 }
 
@@ -211,8 +213,6 @@ li {
     height: 25px;
     background-color: #3EF3D3;
     border-radius: 1000px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
     color: #464C7A;
     font-size: 0.9em;
     margin-top: -45px;
