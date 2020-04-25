@@ -11,7 +11,8 @@ class Money
     {
         event.preventDefault();
 
-        const userInfo = {
+        const userInfo = 
+        {
             user: Auth.currentUser,
             income: parseInt(event.target.parentNode.children[0].children[1].value)
         }

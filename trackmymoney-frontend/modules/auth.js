@@ -87,7 +87,8 @@ class Auth
         event.preventDefault();
         
         // GET USER LOGIN INFO FROM FORM INTO AN OBJECT
-        const userInfo = {
+        const userInfo = 
+        {
             user: {
                 email: event.path[2].childNodes[3][0].value,
                 password: event.path[2].childNodes[3][1].value
@@ -100,8 +101,10 @@ class Auth
 // SIGNUP REQUEST
     static userSignUp =  (event) =>
     {
-        const userInfo = {
-            user : {
+        const userInfo = 
+        {
+            user : 
+            {
                 email: event.path[2].childNodes[3][0].value,
                 password: event.path[2].childNodes[3][1].value,
                 first_name: event.path[2].childNodes[3][2].value,

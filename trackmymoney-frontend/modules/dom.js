@@ -119,13 +119,26 @@ class Dom
     // RENDER CURRENTUSERS BILLS
     static getUsersBills()
     {
-        Auth.currentUser.bills.forEach(bill=> {
+        Auth.currentUser.bills.forEach(bill=> 
+        {
+
             let billContinaer = document.createElement("div");
             billContinaer.setAttribute("class", "bill-container");
+
             let ubill = document.createElement("p")
             ubill.innerText = `${bill.name} - ${bill.cost}`
             ubill.setAttribute("class", "bill-text")
-            billContinaer.append(ubill);
+
+            let dateButton = document.createElement("p");
+            dateButton.setAttribute("class", "bill-date-button");
+            dateButton.innerText = "APR 01"
+
+            let statusButton = document.createElement("p");
+            statusButton.setAttribute("class", "bill-status-button");
+            statusButton.innerText("Mark Paid");
+
+            // APPENDING CREATED ELEMENTS
+            billContinaer.append(datebutton, ubill);
             document.querySelector("#bills").appendChild(billContinaer);
         });
     }
