@@ -136,6 +136,8 @@ class Dom
             let statusButton = document.createElement("p");
             statusButton.setAttribute("class", "bill-status-button");
             statusButton.innerText = "Mark Paid";
+            statusButton.setAttribute("id", bill.id)
+            statusButton.addEventListener("click", Money.payBill)
 
             // APPENDING CREATED ELEMENTS
             billContainer.append(dateButton, ubill, statusButton);

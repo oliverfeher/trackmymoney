@@ -40,6 +40,14 @@ class Money
         return totalCost;
     }
 
+    // PAY BILL * MARK PAID *
+
+    static payBill(event) 
+    {
+        console.log(event.target.id)
+        // patchRequest("/users"), body)
+    }
+
 }
 
 

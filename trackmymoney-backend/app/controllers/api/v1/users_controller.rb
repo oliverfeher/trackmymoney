@@ -11,8 +11,13 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def show
-        users = User.all
+        user = User.find_by(id: params[:id])
         render json: user, include: ["bills"]
+    end
+
+    def index
+        users = User.all
+        render json: users, include: ["bills"]
     end
 
     def update

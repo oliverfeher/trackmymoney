@@ -138,6 +138,7 @@ button {
     margin-top: 25%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 11px 8px #1D2040;
 }
 #logged-in-title{
     margin-top: 10%;
@@ -162,6 +163,7 @@ button {
     margin-top: 5%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 11px 8px #1D2040;
 }
 
 #bills-section {
@@ -173,7 +175,7 @@ button {
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
-  
+    box-shadow: 0px 0px 11px 8px #1D2040;
 
 }
 
