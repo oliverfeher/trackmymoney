@@ -107,7 +107,11 @@ class Dom
                     <div class="flip-box-back">
                         <form id="income-form">
                             <label>Add Bill:</label>
-                            <input type="number">
+                            <input type="text" placeholder="bill title">
+
+                            <input type="number" placeholder="bill cost">
+
+                            <input type="date" placeholder="due by">
                         </form>
                         <p id="bills-submit">Add</p>
                         <p id="bills-back">Back</p>
