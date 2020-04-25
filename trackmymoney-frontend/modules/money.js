@@ -77,6 +77,20 @@ class Money
         Dom.updateBars.call(this, data);
     }
 
+    static addBill(event)
+    {
+        const userInfo =
+        {
+            user_id: Auth.currentUser.id,
+            bills_title: event.target.parentNode.children[0][0].value,
+            bill_cost: event.target.parentNode.children[0][1].value,
+            bill_date: event.target.parentNode.children[0][2].value
+        }
+
+        ApiAdapter.postRequest(`/users/${Auth.currentUser}/bills`, userInfo)
+        .then(response => console.log(response));
+    }
+
 }
 
 

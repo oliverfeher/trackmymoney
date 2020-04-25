@@ -1,7 +1,10 @@
 class Api::V1::BillsController < ApplicationController
 
     def create
+        binding.pry
         user = User.find_by(id: params[:user_id])
+        user.bills.create(name: params[:bills_title], cost: params[:bill_cost], date: params[:bill_date])
+        render json: user, include: ["bills"]
     end
 
     def update
