@@ -95,7 +95,7 @@ class Dom
     static renderBillsSection()
     {
         return `
-            <div id="income-section" class="flip-box">
+            <div id="bills-section" class="flip-box">
                 <div class="flip-box-inner">
                     <div class="flip-box-front">
                     <p id="bills-title">Your bills:</p>
