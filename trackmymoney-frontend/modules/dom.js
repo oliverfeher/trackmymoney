@@ -131,7 +131,7 @@ class Dom
 
             let dateButton = document.createElement("p");
             dateButton.setAttribute("class", "bill-date-button");
-            dateButton.innerText = this.getTodaysDate(bill.date).slice(0,-5).toUpperCase();
+            dateButton.innerText = this.parseDate(bill.date).slice(0,-5).toUpperCase();
             
 
             let statusButton = document.createElement("p");
@@ -168,6 +168,14 @@ class Dom
     static getTodaysDate()
     {
         let date = new Date();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let currentDate = ` ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        return currentDate;
+    }
+
+    static parseDate(str)
+    {
+        let date = new Date(str);
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let currentDate = ` ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
         return currentDate;
