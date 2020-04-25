@@ -58,7 +58,6 @@ class Money
 
         let bill = data.bills.find(e=> e.id == event.target.id)
 
-        console.log(bill);
         if (bill.paid !== false)
         {
             event.target.style.backgroundColor = "#3EF3D3";
@@ -68,7 +67,6 @@ class Money
         } 
         else 
         {
-            console.log(bill)
             event.target.style.backgroundColor = "#21264B";
             event.target.style.color = "white";
             event.target.innerText = "Mark Paid";
@@ -88,7 +86,8 @@ class Money
         }
 
         ApiAdapter.postRequest(`/users/${Auth.currentUser}/bills`, userInfo)
-        .then(response => console.log(response));
+        Dom.renderBillsSection();
+        Dom.flipFlopBillsBack();
     }
 
 }

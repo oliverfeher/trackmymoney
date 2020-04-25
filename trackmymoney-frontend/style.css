@@ -174,7 +174,7 @@ button {
     margin-top: 5%;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
+    overflow-y: scroll;
     box-shadow: 0px 0px 11px 8px #1D2040;
     margin-bottom: 10%;
 
@@ -368,22 +368,29 @@ li {
 }
 
 .bill-date-button {
-    margin-left: 5%;
+    margin-left: 2%;
     margin-right: 3%;
     color: white;
+    width: 8em;
+    height: 2.5em;
     padding: 10px 20px;
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-weight: bold;
     background-color: #21264B;
     border-radius: 25px;
 }
 
+#bills-flip-back {
+    height: 30em;
+}
+
 .bill-status-button {
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 2%;
     padding: 10px 20px;
     background-color: #21264B;
     color: white;
+    height: 2..3em;
     font-weight: bold;
     font-size: 0.8em;
     border-radius: 25px;

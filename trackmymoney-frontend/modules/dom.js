@@ -104,7 +104,7 @@ class Dom
                     <p id="edit-bills-section" >edit</p>
                     </div>
 
-                    <div class="flip-box-back">
+                    <div class="flip-box-back" id="bills-flip-back">
                         <form id="income-form">
                             <label>Add Bill:</label>
                             <input type="text" placeholder="bill title">
@@ -130,7 +130,7 @@ class Dom
             billContainer.setAttribute("class", "bill-container");
 
             let ubill = document.createElement("p")
-            ubill.innerText = `${bill.name} - ${bill.cost}`
+            ubill.innerText = `${bill.name} - $${bill.cost}`
             ubill.setAttribute("class", "bill-text")
 
             let dateButton = document.createElement("p");
