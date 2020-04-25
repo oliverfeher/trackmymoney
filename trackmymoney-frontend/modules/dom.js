@@ -198,6 +198,9 @@ class Dom
         const backButton = document.querySelector("#income-back");
         backButton.addEventListener("click", flipFlopBack);
 
+        const billsSubmit = document.querySelector("#bills-submit");
+        billsSubmit.addEventListener("click", Money.addBill);
+
         const billsSection = document.querySelector("#edit-bills-section");
         billsSection.addEventListener("click", flipFlopBills);
 
