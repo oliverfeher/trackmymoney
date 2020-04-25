@@ -120,10 +120,13 @@ class Dom
     static getUsersBills()
     {
         Auth.currentUser.bills.forEach(bill=> {
+            let billContinaer = document.createElement("div");
+            billContinaer.setAttribute("class", "bill-container");
             let ubill = document.createElement("p")
             ubill.innerText = `${bill.name} - ${bill.cost}`
             ubill.setAttribute("class", "bill-text")
-            document.querySelector("#bills").appendChild(ubill);
+            billContinaer.append(ubill);
+            document.querySelector("#bills").appendChild(billContinaer);
         });
     }
 
