@@ -41,11 +41,16 @@ class Money
     }
 
     // PAY BILL * MARK PAID *
-
     static payBill(event) 
     {
+        const billInfo = 
+        {
+            user_id: Auth.currentUser.id,
+            bill_id: event.target.id
+        }
         console.log(event.target.id)
-        // patchRequest("/users"), body)
+        ApiAdapter.patchRequest(`/users/${Auth.currentUser.id}/bills`, billInfo)
+        .then(data => console.log(data))
     }
 
 }
