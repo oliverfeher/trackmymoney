@@ -339,7 +339,7 @@ li {
 
 .bill-date-button {
     margin-left: 5%;
-    margin-right: 10%;
+    margin-right: 3%;
     color: white;
     padding: 10px 20px;
     font-size: 0.8em;
@@ -357,6 +357,9 @@ li {
     font-weight: bold;
     font-size: 0.8em;
     border-radius: 25px;
+}
+.bill-status-button:hover {
+    cursor: pointer;
 }
 @media only screen and (min-width: 500px) {
     body {

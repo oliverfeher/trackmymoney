@@ -131,18 +131,37 @@ class Dom
 
             let dateButton = document.createElement("p");
             dateButton.setAttribute("class", "bill-date-button");
-            dateButton.innerText = "APR 01"
+            dateButton.innerText = this.getTodaysDate(bill.date).slice(0,-5).toUpperCase();
+            
 
             let statusButton = document.createElement("p");
             statusButton.setAttribute("class", "bill-status-button");
-            statusButton.innerText = "Mark Paid";
             statusButton.setAttribute("id", bill.id)
             statusButton.addEventListener("click", Money.payBill)
+
+            this.usersBillInfo(bill, statusButton);
 
             // APPENDING CREATED ELEMENTS
             billContainer.append(dateButton, ubill, statusButton);
             document.querySelector("#bills").appendChild(billContainer);
         });
+    }
+
+    // USER BILLS STATUS
+    static usersBillInfo(bill, button)
+    {
+        if (bill.paid === true)
+        {
+            button.style.backgroundColor = "#3EF3D3";
+            button.style.color = "black";
+            button.innerText = "Paid";
+        } 
+        else 
+        {
+            button.style.backgroundColor = "#21264B";
+            button.style.color = "white";
+            button.innerText = "Mark Paid";
+        }
     }
 
     // RENDER CURRENT DATE

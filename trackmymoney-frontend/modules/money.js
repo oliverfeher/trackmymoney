@@ -41,7 +41,7 @@ class Money
     }
 
     // PAY BILL * MARK PAID *
-    static payBill(event) 
+    static payBill = (event) => 
     {
         const billInfo = 
         {
@@ -50,7 +50,25 @@ class Money
         }
         console.log(event.target.id)
         ApiAdapter.patchRequest(`/users/${Auth.currentUser.id}/bills`, billInfo)
-        .then(data => console.log(data))
+        .then(data => this.updatePaymentStatus(data, event))
+        console.log(event.target);
+    }
+
+    static updatePaymentStatus(data, event)
+    {
+        console.log(data);
+        if (data.paid === true)
+        {
+            event.target.style.backgroundColor = "#3EF3D3";
+            event.target.style.color = "black";
+            event.target.innerText = "Paid";
+        } 
+        else 
+        {
+            event.target.style.backgroundColor = "#21264B";
+            event.target.style.color = "white";
+            event.target.innerText = "Mark Paid";
+        }
     }
 
 }
