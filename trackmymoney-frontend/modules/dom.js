@@ -208,19 +208,19 @@ class Dom
     }
 
     // UPDATE MONEY BARS
-    static updateBars(user)
+    static updateBars = (user) =>
     {
         // BAR VARIABLES
-        const remainingText = document.querySelector("#bar-remaining-text");
-        const remainingBar = document.querySelector("#bar-remaining");
-        const spentBar = document.querySelector("#bar-spent");
-        const spentText = document.querySelector("#bar-spent");
+        let remainingText = document.querySelector("#bar-remaining-text");
+        let remainingBar = document.querySelector("#bar-remaining");
+        let spentBar = document.querySelector("#bar-spent");
+        let spentText = document.querySelector("#bar-spent-text");
 
         // UPDATE BAR WIDTHS AND REMAINING/SPENT VALUES
         remainingText.innerText = `remaining $${user.income - Money.getBillsValue(user)}`
         remainingBar.style.width =`${this.calculateRemainingWidth(user)}%`
 
-        spentText.inerText = `spent $${Money.getBillsValue(user)}`
+        spentText.innerText = `spent $${Money.getBillsValue(user)}`
         spentBar.style.width = `${this.calculateSpentWidth(user)}%`;
     }
 

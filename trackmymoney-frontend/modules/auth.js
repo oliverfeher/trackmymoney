@@ -25,7 +25,6 @@ class Auth
         }
         else
         {
-            console.log(user);
             this.currentUser = user;
             Dom.loadMainPage();
         }

@@ -32,9 +32,10 @@ class Money
     static getBillsValue(user)
     {
         let costArray = [];
-        for(let i = 0; i < user.bills.length; i++)
+        let paidArray = user.bills.filter(bill=>bill.paid === true)
+        for(let i = 0; i < paidArray.length; i++)
         {
-            costArray.push(user.bills[i].cost);
+            costArray.push(paidArray[i].cost);
         }
         let totalCost = costArray.reduce((total, num) => {return total + num}, 0)
         return totalCost;
@@ -48,27 +49,32 @@ class Money
             user_id: Auth.currentUser.id,
             bill_id: event.target.id
         }
-        console.log(event.target.id)
         ApiAdapter.patchRequest(`/users/${Auth.currentUser.id}/bills`, billInfo)
         .then(data => this.updatePaymentStatus(data, event))
-        console.log(event.target);
     }
 
     static updatePaymentStatus(data, event)
     {
-        console.log(data);
-        if (data.paid === true)
+
+        let bill = data.bills.find(e=> e.id == event.target.id)
+
+        console.log(bill);
+        if (bill.paid !== false)
         {
             event.target.style.backgroundColor = "#3EF3D3";
             event.target.style.color = "black";
             event.target.innerText = "Paid";
+            console.log("this shouldbe true")
         } 
         else 
         {
+            console.log(bill)
             event.target.style.backgroundColor = "#21264B";
             event.target.style.color = "white";
             event.target.innerText = "Mark Paid";
         }
+        this.getBillsValue(data);
+        Dom.updateBars.call(this, data);
     }
 
 }
