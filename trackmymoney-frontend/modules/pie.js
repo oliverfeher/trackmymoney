@@ -2,7 +2,7 @@ import Auth from "/modules/auth.js"
 
 class Pie
 {
-    static generateChart()
+    static generateChart(user)
     {
         // margin
         const margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -36,7 +36,7 @@ class Pie
         .append("g")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
             
-            fetch(`http://localhost:3000/api/v1/users/${Auth.currentUser.id}`, {
+            fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"

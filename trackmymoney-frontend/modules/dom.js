@@ -317,6 +317,7 @@ class Dom
             // APPENDING CREATED ELEMENTS
             billContainer.append(dateButton, ubill, statusButton);
             document.querySelector("#bills").appendChild(billContainer);
+            Pie.generateChart(user.user)
     }
 }
 

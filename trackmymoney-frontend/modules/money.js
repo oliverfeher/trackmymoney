@@ -90,6 +90,7 @@ class Money
 
         ApiAdapter.postRequest(`/users/${Auth.currentUser}/bills`, userInfo)
         .then(user=> Dom.updateBills(user))
+       
     }
 
 }
