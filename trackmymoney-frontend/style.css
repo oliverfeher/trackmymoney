@@ -398,6 +398,33 @@ li {
 .bill-status-button:hover {
     cursor: pointer;
 }
+
+/* PIE CHART */
+
+.arc text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  
+  .arc path {
+    stroke: #fff;
+  }
+  
+  .arc2 text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  
+  .arc2 path {
+    stroke: #fff;
+  }
+
+  svg {
+      position: absolute;
+      margin-left: -125px;
+  }
+
+
 @media only screen and (min-width: 500px) {
     body {
         width: 375px;
@@ -405,4 +432,5 @@ li {
         margin: auto;
     }
 }
+
 

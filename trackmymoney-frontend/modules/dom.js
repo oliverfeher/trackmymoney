@@ -1,12 +1,13 @@
 import Auth from "/modules/auth.js";
 import Money from "/modules/money.js"
+import Pie from "/modules/pie.js"
 
 // RESPONSIBLE FOR MANIPULATING THE DOM
 class Dom
 {
     static container = document.querySelector("#main-container");
 
-    
+    // RENDER LOG IN FORM
     static renderLogin()
     {
         // render login form
@@ -34,8 +35,10 @@ class Dom
     static loadMainPage()
     {
         this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderBillsSection()}`;
-        this.getUsersBills();
+        this.getUsersBills(Auth.currentUser);
         this.flipping();
+        Pie.generateChart(Auth.currentUser);
+
         
 
     };
@@ -120,6 +123,12 @@ class Dom
             </div>`
     }
 
+    // RENDER PIE SECTION
+    static renderPieSection()
+    {
+
+    }
+
     // RENDER CURRENTUSERS BILLS
     static getUsersBills()
     {
@@ -177,6 +186,7 @@ class Dom
         return currentDate;
     }
 
+    // PARSE BILL DATE INTO ONLY DAYS AND MONTHS FORMAT
     static parseDate(str)
     {
         let date = new Date(str);
@@ -200,6 +210,7 @@ class Dom
 
         const billsSubmit = document.querySelector("#bills-submit");
         billsSubmit.addEventListener("click", Money.addBill);
+        billsSubmit.addEventListener("click", flipFlopBillsBack);
 
         const billsSection = document.querySelector("#edit-bills-section");
         billsSection.addEventListener("click", flipFlopBills);
@@ -273,6 +284,35 @@ class Dom
     {
         let remaining = 100 - this.calculateSpentWidth(user);
         return remaining;
+    }
+
+    // RENDER NEWLY CREATED BILL TO THE BILLS SECTION
+    static updateBills = (user) =>
+    {
+        
+        let newBill = user.new_bill;
+        let billContainer = document.createElement("div");
+            billContainer.setAttribute("class", "bill-container");
+
+            let ubill = document.createElement("p")
+            ubill.innerText = `${newBill.name} - $${newBill.cost}`
+            ubill.setAttribute("class", "bill-text")
+
+            let dateButton = document.createElement("p");
+            dateButton.setAttribute("class", "bill-date-button");
+            dateButton.innerText = this.parseDate(newBill.date).slice(0,-5).toUpperCase();
+            
+
+            let statusButton = document.createElement("p");
+            statusButton.setAttribute("class", "bill-status-button");
+            statusButton.setAttribute("id", newBill.id)
+            statusButton.addEventListener("click", Money.payBill)
+
+            this.usersBillInfo(newBill, statusButton);
+
+            // APPENDING CREATED ELEMENTS
+            billContainer.append(dateButton, ubill, statusButton);
+            document.querySelector("#bills").appendChild(billContainer);
     }
 }
 

@@ -53,6 +53,7 @@ class Money
         .then(data => this.updatePaymentStatus(data, event))
     }
 
+    // BILL PAID / UNPAID => CHANGES THE SPENT MONEY VALUE THE BAR AND THE PAID/MARK PAID BUTTON
     static updatePaymentStatus(data, event)
     {
 
@@ -75,8 +76,10 @@ class Money
         Dom.updateBars.call(this, data);
     }
 
+    // CREATE A NEW BILL
     static addBill(event)
     {
+
         const userInfo =
         {
             user_id: Auth.currentUser.id,
@@ -86,8 +89,7 @@ class Money
         }
 
         ApiAdapter.postRequest(`/users/${Auth.currentUser}/bills`, userInfo)
-        Dom.renderBillsSection();
-        Dom.flipFlopBillsBack();
+        .then(user=> Dom.updateBills(user))
     }
 
 }
