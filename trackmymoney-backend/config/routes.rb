@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       post "/users/:id/bills", to: "bills#create"
       patch "/users/:id/bills", to: "bills#update"
+      delete "/users/:id/bills", to: "bills#destroy"
       resource :users, only: [:update, :create]
       post "/login", to: "sessions#new"
       post "/logout", to: "sessions#destroy"

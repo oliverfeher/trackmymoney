@@ -432,9 +432,14 @@ li {
   }
 
   svg {
-      margin-top: -790px;
+      margin-top: -810px;
       position: absolute;
       margin-left: -150px;
+  }
+
+  #reset-month {
+      color: #7682BF;
+      margin-top: 80%;
   }
 
 

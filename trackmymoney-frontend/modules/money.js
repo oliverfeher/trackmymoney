@@ -92,6 +92,21 @@ class Money
        
     }
 
+    // RESET MONTHLY INCOME / PIE CHART AND DELETE ALL BILLS
+    static resetMonth()
+    {
+        fetch(`http://localhost:3000/api/v1/users/${Auth.currentUser.id}/bills`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+            
+        })
+        .then(response=> response.json())
+        .then(user=>Dom.refreshAfterReset(user))
+    }
+
 }
 
 

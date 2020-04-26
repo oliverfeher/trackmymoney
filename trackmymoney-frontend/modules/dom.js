@@ -34,13 +34,11 @@ class Dom
     // RERENDER AFTER SUCCESFUL LOGIN
     static loadMainPage()
     {
-        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderPieSection()} ${this.renderBillsSection()}`;
+        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection(Auth.currentUser)} ${this.renderPieSection()} ${this.renderBillsSection()}`;
         this.getUsersBills(Auth.currentUser);
         this.flipping();
         Pie.generateChart(Auth.currentUser);
-
-        
-
+        document.querySelector("#reset-month").addEventListener("click", Money.resetMonth);
     };
 
     // RENDER LOGGED IN HEADER
@@ -60,23 +58,23 @@ class Dom
     }
 
     // RENDER INCOME SECTION\
-    static renderIncomeSection() 
+    static renderIncomeSection(user) 
     {
         
         return `
             <div id="income-section" class="flip-box">
                 <div class="flip-box-inner">
                     <div class="flip-box-front">
-                        <p id="total-income">Total income: $${Auth.currentUser.income}</p>
+                        <p id="total-income">Total income: $${user.income}</p>
                         <div id="progress-container">
                             <ul>
-                                <p id="bar-remaining-text">remaining $${Auth.currentUser.income - Money.getBillsValue(Auth.currentUser)}</p>
+                                <p id="bar-remaining-text">remaining $${user.income - Money.getBillsValue(user)}</p>
                                 <li class="base-bar"></li>
-                                <li id="bar-remaining" style="width:${this.calculateRemainingWidth(Auth.currentUser)}%;"></li>
+                                <li id="bar-remaining" style="width:${this.calculateRemainingWidth(user)}%;"></li>
 
-                                    <p id="bar-spent-text">spent $${Money.getBillsValue(Auth.currentUser)}</p>
+                                    <p id="bar-spent-text">spent $${Money.getBillsValue(user)}</p>
                                     <li class="base-bar"></li>
-                                <li id="bar-spent" style="width:${this.calculateSpentWidth(Auth.currentUser)}%;"></li>
+                                <li id="bar-spent" style="width:${this.calculateSpentWidth(user)}%;"></li>
                             </ul>
                             <p id="edit-income-section" >edit</p>
                         </div>
@@ -129,6 +127,7 @@ class Dom
         return `
         <div id="bills-pie-section">
             <p id="bills-title">Bills Chart</p>
+            <p id="reset-month">Reset Month</p>
         </div>
         `
     }
@@ -317,8 +316,26 @@ class Dom
             // APPENDING CREATED ELEMENTS
             billContainer.append(dateButton, ubill, statusButton);
             document.querySelector("#bills").appendChild(billContainer);
-            document.querySelector("svg").remove()
+            
             Pie.generateChart(user.user)
+    }
+
+    static refreshAfterReset(user)
+    {
+        let arr = document.querySelectorAll("svg")
+        for(let i= 0; i< arr.length; i++)
+        {
+            arr[i].remove()
+        }
+        let bills = document.querySelector("#bills").children
+        for(let i = 0; i < bills.length; i++)
+        {
+            bills[i].remove();
+        }
+        Money.updateUserIncome(user);
+        this.updateBars(user);
+        
+
     }
 }
 
