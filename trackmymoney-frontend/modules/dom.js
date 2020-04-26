@@ -338,14 +338,14 @@ class Dom
         {
             arr[i].remove()
         }
-        let bills = document.querySelector("#bills").children
+        let bills = Array.from(document.querySelectorAll(".bill-container"))
         for(let i = 0; i < bills.length; i++)
         {
             bills[i].remove();
         }
         Money.updateUserIncome(user);
         this.updateBars(user);
-        
+        document.querySelector("#bar-remaining").style.width = "0%";
 
     }
 }
