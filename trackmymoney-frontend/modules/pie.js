@@ -6,13 +6,13 @@ class Pie
     {
         // margin
         const margin = {top: 20, right: 20, bottom: 20, left: 20},
-            width = 300 - margin.right - margin.left,
-            height = 300 - margin.top - margin.bottom,
+            width = 340 - margin.right - margin.left,
+            height = 340 - margin.top - margin.bottom,
             radius = width/2;
 
         // color range
         const color = d3.scaleOrdinal()
-            .range(["#FE9923", "#3EF3D3", "#FF5497", "#FE9923", "#465BCA", "#1E88E5", "#1976D2"]);
+            .range(["#465BCA", "#3EF3D3", "#FF5497", "#FE9923", "#9D3171", "#1E88E5", "#CC804A"]);
 
         // donut chart arc
         const arc2 = d3.arc()
@@ -76,7 +76,7 @@ class Pie
             .ease(d3.easeLinear)
             .duration(2000)
             .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-            .attr("dy", ".35em")
+            .attr("dy", ".55em")
             .text(function(d) { return d.data.fruit; });
             
         }));

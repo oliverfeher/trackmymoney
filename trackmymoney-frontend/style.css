@@ -179,6 +179,18 @@ button {
     margin-bottom: 10%;
 
 }
+#bills-pie-section {
+    height: 25em;
+    width: 95%;
+    background-color: #2C325C;
+    align-self: center;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 11px 8px #1D2040;
+    margin-bottom: 2%;
+
+}
 
 
 #progress-container {
@@ -420,9 +432,11 @@ li {
   }
 
   svg {
+      margin-top: -790px;
       position: absolute;
-      margin-left: -125px;
+      margin-left: -150px;
   }
+
 
 
 @media only screen and (min-width: 500px) {

@@ -34,7 +34,7 @@ class Dom
     // RERENDER AFTER SUCCESFUL LOGIN
     static loadMainPage()
     {
-        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderBillsSection()}`;
+        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection()} ${this.renderPieSection()} ${this.renderBillsSection()}`;
         this.getUsersBills(Auth.currentUser);
         this.flipping();
         Pie.generateChart(Auth.currentUser);
@@ -126,7 +126,11 @@ class Dom
     // RENDER PIE SECTION
     static renderPieSection()
     {
-
+        return `
+        <div id="bills-pie-section">
+            <p id="bills-title">Bills Chart</p>
+        </div>
+        `
     }
 
     // RENDER CURRENTUSERS BILLS
