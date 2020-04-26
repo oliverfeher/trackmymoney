@@ -34,7 +34,7 @@ class Dom
     // RERENDER AFTER SUCCESFUL LOGIN
     static loadMainPage()
     {
-        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection(Auth.currentUser)} ${this.renderPieSection()} ${this.renderBillsSection()}`;
+        this.container.innerHTML = `${this.renderLoggedInHeader()}  ${this.renderIncomeSection(Auth.currentUser)} ${this.renderPieSection()} ${this.renderBillsSection()} ${this.renderFooter()}`;
         this.getUsersBills(Auth.currentUser);
         this.flipping();
         Pie.generateChart(Auth.currentUser);
@@ -130,6 +130,16 @@ class Dom
             <p id="reset-month">Reset Month</p>
         </div>
         `
+    }
+
+    // RENDER FOOTER SECTION
+    static renderFooter()
+    {
+        return `
+        <footer>
+            <p>Copyright © trackMyMoney 2020</p>
+            <p> by: Oliver Feher</p>
+        </footer>`
     }
 
     // RENDER CURRENTUSERS BILLS
@@ -320,6 +330,7 @@ class Dom
             Pie.generateChart(user.user)
     }
 
+    // REFRESH ALL SECTIONS TO ZERO/EMPTY
     static refreshAfterReset(user)
     {
         let arr = document.querySelectorAll("svg")

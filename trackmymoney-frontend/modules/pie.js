@@ -2,6 +2,7 @@ import Auth from "/modules/auth.js"
 
 class Pie
 {
+    // GENERATE PIE CHART BASED ON USERS BILSS
     static generateChart(user)
     {
         // margin
