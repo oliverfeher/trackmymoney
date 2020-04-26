@@ -64,7 +64,6 @@ class Money
             event.target.style.backgroundColor = "#3EF3D3";
             event.target.style.color = "black";
             event.target.innerText = "Paid";
-            console.log("this shouldbe true")
         } 
         else 
         {

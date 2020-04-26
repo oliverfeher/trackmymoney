@@ -16,7 +16,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def index
-        binding.pry
         users = User.all
         render json: users, include: ["bills"]
     end
